@@ -1,4 +1,4 @@
-import { send, receive } from "@vercel/queue";
+import { receive,send } from "@vercel/queue";
 import { NextResponse } from 'next/server';
 
 
@@ -14,7 +14,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 }
 
 
-await receive("topic", "consumer", (m: any) => {
+await receive("topic", "consumer", (m) => {
 
-    console.log(m.message); // Logs "Hello World!"
+    console.log(m); // Logs "Hello World!"
   });
