@@ -1,20 +1,13 @@
-import { receive,send } from "@vercel/queue";
+import { send } from "@vercel/queue";
 import { NextResponse } from 'next/server';
 
 
-export async function POST(request: Request): Promise<NextResponse> {
-    const body = await request.json(); // parses JSON body
+export async function POST(req: NextResponse) {
+    const body = await req.json(); // parses JSON body
     console.log("body", body);
-    // 
+   
     await send("topic", { message: "Hello World!" });
 
 
-    return NextResponse.json({ message: "OK" }, { status: 200 });
-
+    return new Response("OK", { status: 200 });
 }
-
-
-await receive("topic", "consumer", (m) => {
-
-    console.log(m); // Logs "Hello World!"
-  });
