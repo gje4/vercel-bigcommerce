@@ -6,8 +6,8 @@ export async function POST(req: NextResponse) {
     const body = await req.json(); // parses JSON body
     console.log("body", body);
    
-    await send("topic", { message: body });
+    await send("order", { message: body });
 
 
-    return
+    return NextResponse.json({ success: true }, { status: 200 });
 }
