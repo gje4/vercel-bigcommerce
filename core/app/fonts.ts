@@ -1,16 +1,17 @@
-import { DM_Serif_Text, Inter, Roboto_Mono } from 'next/font/google';
+import { Nunito, Nunito_Sans, Roboto_Mono } from 'next/font/google';
 
-export const inter = Inter({
+export const nunito = Nunito({
   display: 'swap',
   subsets: ['latin'],
-  variable: '--font-family-inter',
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-family-nunito',
 });
 
-export const dmSerifText = DM_Serif_Text({
+export const nunitoSans = Nunito_Sans({
   display: 'swap',
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-family-dm-serif-text',
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-family-nunito-sans',
 });
 
 export const robotoMono = Roboto_Mono({
@@ -19,4 +20,4 @@ export const robotoMono = Roboto_Mono({
   variable: '--font-family-roboto-mono',
 });
 
-export const fonts = [inter, dmSerifText, robotoMono];
+export const fonts = [nunito, nunitoSans, robotoMono];
